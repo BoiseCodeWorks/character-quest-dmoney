@@ -17,13 +17,13 @@ export default class CQController {
 
   async getAllCQs(req, res, next) {
     try {
-      let cqs = await _repo.find({})
+      let cqs = await _repo.find({}).populate({ path: 'characterId', populate: { path: 'professionId userId' } }).populate('questId')
       return res.send(cqs)
     } catch (error) { next(error) }
   }
   async getCQ(req, res, next) {
     try {
-      let cq = await _repo.findOne({ characterId: req.params.id, questId: req.params.id }).populate('characterId').populate('questId')
+      let cq = await _repo.findOne({ characterId: req.params.characterId, questId: req.params.questId }).populate('characterId').populate('questId')
       return res.send(cq)
     } catch (error) { next(error) }
   }
