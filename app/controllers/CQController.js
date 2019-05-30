@@ -17,7 +17,7 @@ export default class CQController {
 
   async getAllCQs(req, res, next) {
     try {
-      let cqs = await _repo.find({}).populate({ path: 'characterId', populate: { path: 'professionId userId' } }).populate('questId')
+      let cqs = await _repo.find({}).populate({ path: 'characterId', populate: { path: 'professionId userId', select: 'name' } }).populate('questId')
       return res.send(cqs)
     } catch (error) { next(error) }
   }
