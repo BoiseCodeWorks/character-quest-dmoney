@@ -19,7 +19,7 @@
   "homepage": "https://github.com/BoiseCodeWorks/character-quest-dmoney#readme",
   "dependencies": {
     "esm": "^3.2.25",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.5.11"
   }
 }
